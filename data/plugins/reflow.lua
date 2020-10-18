@@ -59,5 +59,5 @@ command.add("core.docview", {
 
 
 keymap.add {
-  ["ctrl+shift+q"] = "reflow:reflow"
+  ["cmd+shift+q"] = "reflow:reflow"
 }

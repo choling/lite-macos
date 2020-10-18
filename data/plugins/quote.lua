@@ -26,5 +26,5 @@ command.add("core.docview", {
 })
 
 keymap.add {
-  ["ctrl+'"] = "quote:quote",
+  ["cmd+'"] = "quote:quote",
 }
