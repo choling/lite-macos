@@ -80,6 +80,15 @@ top:
       return 4;
 
     case SDL_KEYDOWN:
+#ifdef __APPLE__
+      /* on macos command+w will close the current window
+      ** we want to flush this event and let the keymapper
+      ** handle this key combination */
+      if ((e.key.keysym.sym == SDLK_w) && (e.key.keysym.mod & KMOD_GUI))
+      {
+        SDL_FlushEvent(SDL_QUIT);
+      }
+#endif
       lua_pushstring(L, "keypressed");
       lua_pushstring(L, key_name(buf, e.key.keysym.sym));
       return 2;
