@@ -24,10 +24,13 @@ The editor can be customized by making changes to the
 [user module](data/user/init.lua).
 
 ## Building
-You can build the project yourself on Linux using the `build.sh` script
-or on Windows using the `build.bat` script *([MinGW](https://nuwen.net/mingw.html) is required)*.
+You can build the project yourself on Linux or macOS using the `build.sh` script, on Windows using the `build.bat` script *([MinGW](https://nuwen.net/mingw.html) is required)*.
 Note that the project does not need to be rebuilt if you are only making changes
 to the Lua portion of the code.
+
+## Bundling
+You can bundle the project yourself on macOS using the `package.sh` script.
+Note that the project will package the `data` folder, for plugins and themes, inside the app directory at `lite.app/Contents/MacOS`.
 
 ## Contributing
 Any additional functionality that can be added through a plugin should be done

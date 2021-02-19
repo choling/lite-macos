@@ -16,7 +16,7 @@ elif [[ $* == *macos* ]]; then
   outfile="lite"
   compiler="gcc"
   cflags="$cflags -DLUA_USE_POSIX"
-  lflags="-F/Library/Frameworks -framework SDL2 -lm -o $outfile"
+  lflags="-F/Library/Frameworks -framework SDL2 -framework Foundation -lobjc -lm -o $outfile"
 else
   platform="unix"
   outfile="lite"
@@ -31,7 +31,7 @@ fi
 
 
 echo "compiling ($platform)..."
-for f in `find src -name "*.c"`; do
+for f in `find src -name "*.c" -or -name "*.m"`; do
   $compiler -c $cflags $f -o "${f//\//_}.o"
   if [[ $? -ne 0 ]]; then
     got_error=true
