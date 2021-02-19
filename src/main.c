@@ -8,6 +8,7 @@
 #elif __linux__
   #include <unistd.h>
 #elif __APPLE__
+  #include "platform/macos.h"
   #include <mach-o/dyld.h>
 #endif
 
@@ -89,6 +90,9 @@ int main(int argc, char **argv) {
   init_window_icon();
   ren_init(window);
 
+#ifdef __APPLE__
+  enable_momentum_scroll();
+#endif
 
   lua_State *L = luaL_newstate();
   luaL_openlibs(L);

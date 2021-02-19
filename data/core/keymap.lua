@@ -57,7 +57,6 @@ end
 
 
 function keymap.on_key_pressed(k)
-  print(k)
   local mk = modkey_map[k]
   if mk then
     keymap.modkeys[mk] = true
