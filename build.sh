@@ -16,7 +16,7 @@ elif [[ $* == *macos* ]]; then
   outfile="lite"
   compiler="gcc"
   cflags="$cflags -DLUA_USE_POSIX"
-  lflags="-F/Library/Frameworks -framework SDL2 -framework Foundation -lobjc -lm -o $outfile"
+  lflags="-D_THREAD_SAFE -I/usr/local/include/SDL2 -L/usr/local/lib -lSDL2 -framework Foundation -lobjc -lm -o $outfile"
 else
   platform="unix"
   outfile="lite"
